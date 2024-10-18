@@ -1,0 +1,7 @@
+{
+  "name": "asistencia-full-2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
