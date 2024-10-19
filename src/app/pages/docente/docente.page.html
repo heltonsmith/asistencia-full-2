@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>docente</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <app-header></app-header>
+
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Asignaturas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-list>
+    <ion-item *ngFor="let asignatura of asignaturas">
+      <div class="asignatura-container">
+        <div class="asignatura-nombre">
+          {{ asignatura.nombre }} - {{ asignatura.id }}
+        </div>
+      </div>
+      <ion-button fill="outline" class="generar-curre-button" (click)="generarQR(asignatura.id)">Generar QR</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <div class="mx-auto text-center">
+    <h2>Código QR</h2>
+    <h3>{{ qrData }}</h3>
+    <canvas #qrCanvas></canvas>
+  </div>
+
+
+  <app-footer></app-footer>
+</ion-content>
+

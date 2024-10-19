@@ -1,0 +1,9 @@
+<!-- header.component.html -->
+<div class="cabecera" [ngClass]="{'iniciado': usuario!==''}">
+  <h1>APP DUOC</h1>
+  @if (usuario!==''){
+    <p>
+      Usuario: {{usuario}} - {{usuarioCompleto.rol}}
+    </p>
+  }
+</div>

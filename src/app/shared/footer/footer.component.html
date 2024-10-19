@@ -1,0 +1,20 @@
+<!-- footer.component.html -->
+<div class="pie">
+  <p [ngStyle]="{'color': getColor()}">
+    footer works!
+  </p>
+  <p><a [routerLink]="['/']">Home</a></p>
+  <p><a [routerLink]="['/not-found']">Not Found</a></p>
+  @if (usuario) {
+    <p><a [routerLink]="['/logout']">Logout</a></p>
+    @if (usuarioCompleto.rol === 'docente') {
+      <p><a [routerLink]="['/docente']">Docente</a></p>
+    }
+    @else {
+      <p><a [routerLink]="['/alumno']">Alumno</a></p>
+    }
+  }
+  @else {
+    <p><a [routerLink]="['/login']">Login</a></p>
+  }
+</div>

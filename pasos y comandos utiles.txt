@@ -1,0 +1,80 @@
+1) crear proyecto ngmodule
+2) crear componente de tipo page ionic g page pages/home 
+3) recrear todos los componentes de tipo página a excepción de los otros documentos
+4) agregar propiedades a tsconfig.json:
+	"strictPropertyInitialization": false,
+	"strictNullChecks": false
+5) para utilizar apis utilizar provider, la nueva forma de hacerlo
+	...
+	import { provideHttpClient } from '@angular/common/http';
+	…
+
+	@NgModule({
+  		...
+  		providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideHttpClient()],
+  		...
+	})
+
+6) instalar librería qurious 
+npm install qrious --save
+
+7) Crea un archivo de declaración de tipos:
+crear un archivo llamado qrious.d.ts en tu proyecto para declarar el módulo. 
+
+Sigue estos pasos:
+Crea una carpeta llamada @types en la raíz de tu proyecto (si no existe).
+Dentro de @types, crea un archivo llamado qrious.d.ts.
+
+El contenido del archivo debe ser:
+typescript
+
+declare module 'qrious' {
+  export default class QRious {
+    constructor(options?: {
+      element?: HTMLCanvasElement;
+      value?: string;
+      size?: number;
+      level?: 'L' | 'M' | 'Q' | 'H';
+    });
+  }
+}
+
+8) Configura TypeScript para incluir el directorio de tipos:
+Asegúrate de que tu archivo tsconfig.json tenga la siguiente opción para incluir el directorio de tipos:
+
+json
+
+{
+  "compilerOptions": {
+    "typeRoots": [
+      "node_modules/@types",
+      "src/@types" // Asegúrate de incluir esta línea
+    ],
+    // otras configuraciones...
+  }
+}
+
+9) Instalar plugin Capacitor para soporte de cámara
+npm install @capacitor/camera
+
+10) Instalar plugin Capacitor para Android:
+npm install @capacitor/android
+
+11) Compilar proyecto y abrir proyecto en android
+ionic build --prod
+npx cap add android
+npx cap open android
+
+opcionales:
+
+en caso de modificador
+npx cap copy android
+
+en caso de agregar plugin
+npx cap sync Android
+
+12) Inspección del Error: Utiliza Chrome DevTools para inspeccionar la aplicación
+mientras se ejecuta en un dispositivo físico o emulador. Para ello,
+abre chrome://inspect en tu navegador Chrome y
+selecciona tu dispositivo para ver posibles errores de consola o estilos no cargados.
+

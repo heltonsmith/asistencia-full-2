@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-header></app-header>
+
+  <div>
+    <h1>Bienvenido a la APP</h1>
+
+    <h4>Botón para probar webservice</h4>
+    <ion-button (click)="consumirServicio()">
+      @if(cargando){
+        Cargando...
+      }
+      @else{
+        Consumir servicio
+      }
+    </ion-button>
+    <br>
+
+    <p>
+      home works!
+    </p>
+  </div>
+  <app-footer></app-footer>
+</ion-content>
